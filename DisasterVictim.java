@@ -1,4 +1,4 @@
-package ucalgary.edu.oop
+package edu.ucalgary.oop;
 
 public class DisasterVictim{
 
