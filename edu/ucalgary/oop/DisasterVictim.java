@@ -24,11 +24,16 @@ public class DisasterVictim{
 	}
 	//Getters
 	
-	
-	
-	
-	
-	
+	public String getFirstName(){ return this.firstName; }
+	public String getLastName() { return this.lastName; }
+	public String getDateOfBirth() { return this.dateOfBirth; }
+	public String getComments() { return this.comments; }
+	public MedicalRecord getMedicalRecords() { return this.medicalRecords; }
+	public String getEntryDate() { return this.ENTRY_DATE; }
+	public int getAssignedSocialID() { return this.ASSIGNED_SOCIAL_ID; }
+	public Supply getPersonalBelongings() { return this.personalBelongings; }
+	public FamilyRelation getFamilyConnections() {return this.familyConnections; }
+	public String getGender() { return this.gender; }
 	
 	//Setters
 	
