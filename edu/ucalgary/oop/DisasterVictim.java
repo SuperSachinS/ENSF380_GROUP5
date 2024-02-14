@@ -78,6 +78,18 @@ public class DisasterVictim{
 	}
 	
 	public void removedPersonalBelonging(Supply supply){
-		
+		//TODO
+	}
+	
+	public void addFamilyConnection(FamilyRelation familyConnection){
+		//TODO
+	}
+	
+	public void removeFamilyConnection(FamilyRelation familyConnection){
+		//TODO
+	}
+	
+	public void addMedicalRecord(MedicalRecord medicalRecord){
+		//TODO
 	}
 }
