@@ -1,9 +1,7 @@
-
-
-
 package edu.ucalgary.oop;
 import java.util.regex.*;
 import java.util.random;
+import java.util.ArrayList;
 public class DisasterVictim{
 	
 	//Attributes
@@ -12,10 +10,10 @@ public class DisasterVictim{
 	private String dateOfBirth;
 	private String comments;
 	private final int ASSIGNED_SOCIAL_ID;
-	private MedicalRecord[] medicalRecords;
-	private FamilyRelation[] familyConnections;
+	private ArrayList<MedicalRecord> medicalRecords;
+	private ArrayList<FamilyRelation> familyConnections;
 	private final String ENTRY_DATE;
-	private Supply[] personalBelongings;
+	private ArrayList<Supply> personalBelongings;
 	private String gender;
 	private static final int counter = 0;
 	private static final String REGEX = "\\d{4}-\\d{2}-\\d{2}";
@@ -86,16 +84,16 @@ public class DisasterVictim{
 		this.comments = comments;
 	}
 	
-	public void setMedicalRecords(MedicalRecord[] medicalRecords){
-		//TODO
+	public void setMedicalRecords(List<MedicalRecord> medicalRecords){
+		this.medicalRecords = medicalRecords;
 	}
 	
-	public void setPersonalBelongings(Supply[] supplies){
-		//TODO
+	public void setPersonalBelongings(List<Supply> supplies){
+		this.personalBelongings = supplies;
 	}
 	
-	public void setFamilyConnections(FamilyRelation[] relation){
-		//TODO
+	public void setFamilyConnections(List<FamilyRelation> relation){
+		this.familyConnections = relation;
 	}
 	
 	public void setGender(String gender){
@@ -103,22 +101,47 @@ public class DisasterVictim{
 	}
 	
 	public void addPersonalBelonging(Supply supply){
-		//TODO
+		int supplyLength = personalBelongings.size();
+		for(int i = 0; i < supplyLength; i++){
+			if (this.personalBelongings.get(i).getType() == supply.getType()){
+				current_quantity = this.personalBelongings.get(i).getQuantity();
+				new_quantity = current_quantity + supply.getQuantity();
+				this.personalBelongings.get(i).setQuantity(new_quantity); 
+				return;
+			}
+		}
+		this.personalBelongings.add(supply);	
 	}
 	
 	public void removedPersonalBelonging(Supply supply){
-		//TODO
+		int supplyLength = personalBelongings.size();
+		for(int i = 0; i < supplyLength; i++){
+			if (this.personalBelongings.get(i).getType() == supply.getType()){
+				this.personalBelongings.remove(i);
+				return;
+			}
+		}
 	}
 	
 	public void addFamilyConnection(FamilyRelation familyConnection){
-		//TODO
+		this.familyConnections.add(familyConnection);
 	}
 	
 	public void removeFamilyConnection(FamilyRelation familyConnection){
-		//TODO
+		relationLength = this.familyConnections.size();
+		
+		for(int i = 0; i < relationLength; i++){
+			if(this.familyConnections.get(i) == familyConnection){
+				this.familyConnections.remove(i);
+				return;
+			}
+			
+			
+		}
+		
 	}
 	
 	public void addMedicalRecord(MedicalRecord medicalRecord){
-		//TODO
+		this.medicalRecords.add(medicalRecord);
 	}
 }
