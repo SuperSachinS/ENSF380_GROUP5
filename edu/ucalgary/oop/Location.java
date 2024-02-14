@@ -2,11 +2,15 @@ package edu.ucalgary.oop;
 import java.util.ArrayList;
 
 public class Location {
+    // Attributes
     private String name;
     private String address;
     private ArrayList<DisasterVictim> occupants;
     private ArrayList<Supply> supplies;
 
+    // Methods
+
+    // Constructor
     public Location(String name, String address){
         this.setName(name);
         this.setAddress(address);
@@ -30,11 +34,13 @@ public class Location {
         this.supplies.remove(supply);
     }
 
+    // Setters
     public void setName(String name){this.name = name;}
     public void setAddress(String address){this.address = address;}
     public void setOccupants(ArrayList<DisasterVictim> occupants){this.occupants = occupants;}
     public void setSupplies(ArrayList<Supply> supplies){this.supplies = supplies;}
 
+    // Getters
     public String getName(){return this.name;}
     public String getAddress(){return this.address;}
     public ArrayList<DisasterVictim> getOccupants(){return this.occupants;}
