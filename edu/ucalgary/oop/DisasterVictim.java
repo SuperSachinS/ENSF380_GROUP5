@@ -3,7 +3,7 @@
 
 package edu.ucalgary.oop;
 import java.util.regex.*;
-
+import java.util.random;
 public class DisasterVictim{
 	
 	//Attributes
@@ -11,20 +11,41 @@ public class DisasterVictim{
 	private String lastName;
 	private String dateOfBirth;
 	private String comments;
-	private static final int ASSIGNED_SOCIAL_ID;
+	private final int ASSIGNED_SOCIAL_ID;
 	private MedicalRecord[] medicalRecords;
 	private FamilyRelation[] familyConnections;
-	private static final String ENTRY_DATE;
+	private final String ENTRY_DATE;
 	private Supply[] personalBelongings;
 	private String gender;
-	private int counter;
+	private static final int counter = 0;
+	private static final String REGEX = "\\d{4}-\\d{2}-\\d{2}";
+	private static final Pattern PATTERN = Pattern.compile(REGEX);
 	
 	//Methods
 	
 	//Constructors
 	
 	public DisasterVictim(String firstName, String ENTRY_DATE) throws IllegalArgumentException{
+		Matcher match = PATTERN.matcher(ENTRY_DATE);
+		boolean valid_date = match.find();
 		
+		if (!valid_date){
+			throw new IllegalArgumentException("Invalid format for date");
+		}
+		
+		this.firstName = firstName;
+		this.ENTRY_DATE = ENTRY_DATE;
+		
+		this.lastName = null;
+		this.dateOfBirth = null;
+		this.comments = null;
+		
+		this.ASSIGNED_SOCIAL_ID = counter;
+		counter++;
+		this.medicalRecords = null;
+		this.familyConnections = null;
+		this.personalBelongings = null;
+		this.gender = null;
 	}
 	//Getters
 	
@@ -50,7 +71,15 @@ public class DisasterVictim{
 	}
 	
 	public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException{
-		//TODO
+		Matcher match = PATTERN.matcher(dateOfBirth);
+		boolean valid_date = match.find();
+		
+		if (!valid_date){
+			throw new IllegalArgumentException("Invalid format for date");
+		}
+		
+		this.dateOfBirth = dateOfBirth;
+		
 	}
 	
 	public void setComments(String comments){
