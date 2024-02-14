@@ -44,7 +44,6 @@ public class DisasterVictim{
 		counter++;
 		this.medicalRecords = null;
 		this.familyConnections = null;
-		this.ENTRY_DATE = ENTRY_DATE;
 		this.personalBelongings = null;
 		this.gender = null;
 	}
