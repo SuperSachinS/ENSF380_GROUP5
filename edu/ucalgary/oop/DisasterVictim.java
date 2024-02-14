@@ -41,9 +41,9 @@ public class DisasterVictim{
 		
 		this.ASSIGNED_SOCIAL_ID = counter;
 		counter++;
-		this.medicalRecords = null;
-		this.familyConnections = null;
-		this.personalBelongings = null;
+		this.medicalRecords = new ArrayList<>();
+		this.familyConnections = new ArrayList<>();
+		this.personalBelongings = new ArrayList<>();
 		this.gender = null;
 	}
 	//Getters
@@ -52,12 +52,28 @@ public class DisasterVictim{
 	public String getLastName() { return this.lastName; }
 	public String getDateOfBirth() { return this.dateOfBirth; }
 	public String getComments() { return this.comments; }
-	public ArrayList<MedicalRecord> getMedicalRecords() { return this.medicalRecords; }
 	public String getEntryDate() { return this.ENTRY_DATE; }
 	public int getAssignedSocialID() { return this.ASSIGNED_SOCIAL_ID; }
-	public ArrayList<Supply> getPersonalBelongings() { return this.personalBelongings; }
-	public ArrayList<FamilyRelation> getFamilyConnections() {return this.familyConnections; }
+
 	public String getGender() { return this.gender; }
+	
+	
+	public MedicalRecord[] getMedicalRecords() { 
+		MedicalRecord[] array = this.medicalRecords.toArray(new MedicalRecord[0]);
+		return array; 
+	}
+	
+	
+	public Supply[] getPersonalBelongings() { 
+		Supply[] array = this.personalBelongings.toArray(new Supply[0]);
+		return array;
+	
+	}
+	public FamilyRelation[] getFamilyConnections() {
+		FamilyRelation[] array = this.familyConnections.toArray(new FamilyRelation[0]);
+		return array;
+	}
+	
 	
 	//Setters
 	
@@ -85,16 +101,31 @@ public class DisasterVictim{
 		this.comments = comments;
 	}
 	
-	public void setMedicalRecords(ArrayList<MedicalRecord> medicalRecords){
-		this.medicalRecords = medicalRecords;
+	public void setMedicalRecords(MedicalRecord[] medicalRecords){
+		int recordLength = medicalRecords.length;
+		
+		for (int i = 0; i < recordLength; i++){
+			this.medicalRecords.add(medicalRecords[i]);
+		}
+		
+		
 	}
 	
-	public void setPersonalBelongings(ArrayList<Supply> supplies){
-		this.personalBelongings = supplies;
+	public void setPersonalBelongings(Supply[] supplies){
+		int supplyLength = supplies.length;
+		
+		for (int i = 0; i < supplyLength; i++){
+			this.personalBelongings.add(supplies[i]);
+		}
+
 	}
 	
-	public void setFamilyConnections(ArrayList<FamilyRelation> relation){
-		this.familyConnections = relation;
+	public void setFamilyConnections(FamilyRelation[] relation){
+		int relationLength = relation.length;
+		
+		for (int i = 0; i < relationLength; i++){
+			this.familyConnections.add(relation[i]);
+		}
 	}
 	
 	public void setGender(String gender){
@@ -114,7 +145,7 @@ public class DisasterVictim{
 		this.personalBelongings.add(supply);	
 	}
 	
-	public void removedPersonalBelonging(Supply supply){
+	public void removePersonalBelonging(Supply supply){
 		int supplyLength = personalBelongings.size();
 		for(int i = 0; i < supplyLength; i++){
 			if (this.personalBelongings.get(i).getType() == supply.getType()){
