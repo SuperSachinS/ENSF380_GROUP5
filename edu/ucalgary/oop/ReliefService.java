@@ -47,12 +47,12 @@ public class ReliefService {
   public String getInfoProvided(){return this.infoProvided;}
   public Location getLastKnownLocation(){return this.lastKnownLocation;}
   public String getLogDetails(){
-   String inq = "Inquirer ".concat(this.inquirer.getFirstName());
-   String miss = ", Missing Person:".concat(this.missingPerson.getFirstName());
-   String date = ", Date of Inquiry: ".concat(this.dateOfInquiry);
-   String info = ", Info Provided: ".concat(this.infoProvided);
-   String loc = ", Last Known Location: ".concat(this.lastKnownLocation.getName());
-   return inq.concat(miss).concat(date).concat(info).concat(loc);
-  }
+    String inq = "Inquirer: ".concat(this.inquirer.getFirstName());
+    String miss = ", Missing Person: ".concat(this.missingPerson.getFirstName());
+    String date = ", Date of Inquiry: ".concat(this.dateOfInquiry);
+    String info = ", Info Provided: ".concat(this.infoProvided);
+    String loc = ", Last Known Location: ".concat(this.lastKnownLocation.getName());
+    return inq.concat(miss).concat(date).concat(info).concat(loc);
+   }
 }
 
